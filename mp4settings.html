@@ -44,7 +44,7 @@
       <div>
         <label>MP4 Download location</label>
         <br>
-        <input placeholder="C:/PATH/TO/File" type="text" id="mp4locatext" autofocus>
+        <input onkeyup="this.value = this.value.replace(/\\/g, '/')" placeholder="C:/PATH/TO/File" type="text" id="mp4locatext" autofocus>
       </div>
       <button type="submit" class="button">Change</button>
     </form>

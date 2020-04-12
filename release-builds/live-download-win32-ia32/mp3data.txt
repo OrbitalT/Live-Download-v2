@@ -1,1 +1,0 @@
-C:/Users/bryce/Desktop/test/mp3/%(title)s.%(ext)s 

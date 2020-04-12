@@ -44,7 +44,7 @@
       <div>
         <label>Channel Download location</label>
         <br>
-        <input placeholder="C:/PATH/TO/File" type="text" id="chanloca" autofocus>
+        <input onkeyup="this.value = this.value.replace(/\\/g, '/')" placeholder="C:/PATH/TO/File" type="text" id="chanloca" autofocus>
       </div>
       <button type="submit" class="button">Change</button>
     </form>
