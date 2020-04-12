@@ -44,7 +44,7 @@
       <div>
         <label>MP3 Download location</label>
         <br>
-        <input placeholder="C:/PATH/TO/File" type="text" id="mp3locatext" autofocus>
+        <input onkeyup="this.value = this.value.replace(/\\/g, '/')" placeholder="C:/PATH/TO/File" type="text" id="mp3locatext" autofocus>
       </div>
       <button type="submit" class="button">Change</button>
     </form>
@@ -55,7 +55,9 @@
     // document.getElementById("mp3locatext").placeholder = mp3loca;
 
     const electron = require('electron');
-    const {ipcRenderer} = electron;
+    const {
+      ipcRenderer
+    } = electron;
 
     // mp3loca
     const form = document.querySelector('form');
