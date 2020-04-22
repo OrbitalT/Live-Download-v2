@@ -51,8 +51,13 @@
   </div>
 
   <script type="text/javascript">
-    // var mp3loca = 'C:/Users/bryce/Desktop/here/mp3/%(title)s.%(ext)s';
-    // document.getElementById("mp3locatext").placeholder = mp3loca;
+    var fs = require('fs');
+    const mp3LocationData = './data/mp3data.txt';
+    var locamp3;
+
+    // mp3
+    var locamp3 = fs.readFileSync(mp3LocationData, 'utf8');
+    document.getElementById("mp3locatext").placeholder = locamp3;
 
     const electron = require('electron');
     const {

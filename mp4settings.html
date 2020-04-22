@@ -51,11 +51,18 @@
   </div>
 
   <script type="text/javascript">
-    // var mp3loca = 'C:/Users/bryce/Desktop/here/mp3/%(title)s.%(ext)s';
-    // document.getElementById("mp3locatext").placeholder = mp3loca;
+    var fs = require('fs');
+    const mp4LocationData = './data/mp4data.txt';
+    var locamp4;
+
+    // mp4
+    var locamp4 = fs.readFileSync(mp4LocationData, 'utf8');
+    document.getElementById("mp4locatext").placeholder = locamp4;
 
     const electron = require('electron');
-    const {ipcRenderer} = electron;
+    const {
+      ipcRenderer
+    } = electron;
 
     // mp3loca
     const form = document.querySelector('form');

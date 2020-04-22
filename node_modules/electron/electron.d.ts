@@ -1,4 +1,4 @@
-// Type definitions for Electron 7.2.1
+// Type definitions for Electron 7.2.3
 // Project: http://electronjs.org/
 // Definitions by: The Electron Team <https://github.com/electron/electron>
 // Definitions: https://github.com/electron/electron-typescript-definitions
@@ -1944,6 +1944,13 @@ __Note__: On macOS this event is an alias of `moved`.
      * Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`,
      * `left`.
      *
+     * The method underlying this event is built to handle older macOS-style trackpad
+     * swiping, where the content on the screen doesn't move with the swipe. Most macOS
+     * trackpads are not configured to allow this kind of swiping anymore, so in order
+     * for it to emit properly the 'Swipe between pages' preference in `System
+     * Preferences > Trackpad > More Gestures` must be set to 'Swipe with two or three
+     * fingers'.
+     *
      * @platform darwin
      */
     on(event: 'swipe', listener: (event: Event,
@@ -3827,7 +3834,9 @@ Send given command to the debugging target.
      * It returns the index of the clicked button.
      *
      * The `browserWindow` argument allows the dialog to attach itself to a parent
-     * window, making it modal.
+     * window, making it modal. If the `browserWindow` is not shown, the dialog will
+     * not be attached to it. In that case it will be displayed as an independent
+     * window.
      */
     showMessageBoxSync(browserWindow: BrowserWindow, options: MessageBoxSyncOptions): number;
     /**
@@ -3837,7 +3846,9 @@ Send given command to the debugging target.
      * It returns the index of the clicked button.
      *
      * The `browserWindow` argument allows the dialog to attach itself to a parent
-     * window, making it modal.
+     * window, making it modal. If the `browserWindow` is not shown, the dialog will
+     * not be attached to it. In that case it will be displayed as an independent
+     * window.
      */
     showMessageBoxSync(options: MessageBoxSyncOptions): number;
     /**
@@ -9405,6 +9416,8 @@ An example of showing devtools in a `BrowserWindow`:
     /**
      * Changes the zoom factor to the specified factor. Zoom factor is zoom percent
      * divided by 100, so 300% = 3.0.
+     * 
+The factor must be greater than 0.0.
 
 **Deprecated**
      */
@@ -9594,6 +9607,8 @@ An example of using node-spellchecker as provider:
     /**
      * Changes the zoom factor to the specified factor. Zoom factor is zoom percent
      * divided by 100, so 300% = 3.0.
+
+The factor must be greater than 0.0.
      */
     setZoomFactor(factor: number): void;
     /**
