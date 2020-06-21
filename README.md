@@ -4,16 +4,18 @@
 
 
 
-A Youtube-dl GUI downloader
+A YouTube-dl GUI downloader
 
 ### What is Live Download
-Live Download can download from over a 100 sites including Youtube using the powerfull youtube-dl app.
+Live Download can download from over a 100 sites including YouTube using the powerful YouTube-dl app.
 
 ### Features
 - [x] Choose files paths
 - [x] Download MP3 and MP4 files
 - [x] Download Channels
 - [x] Download playlist
+- [x] Display Download Rules
+- [ ] Change Download Rules from app
 - [ ] Change files types
 - [ ] Auto update
 - [ ] Fix Readme.md
