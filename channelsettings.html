@@ -49,6 +49,17 @@
     </form>
   </div>
 
+  <div id="parent">
+    <form id="form">
+      <div>
+        <label>Channel Download Rules</label>
+        <br>
+        <textarea type="text" id="channelrulestext" rows="19" cols="50"></textarea>
+      </div>
+      <!-- <button type="submit" class="button">Change</button> -->
+    </form>
+  </div>
+
   <script type="text/javascript">
     var fs = require('fs');
     const channelLocationData = './data/channeldata.txt';
@@ -57,6 +68,12 @@
     // channel
     var locachannel = fs.readFileSync(channelLocationData, 'utf8');
     document.getElementById("chanloca").placeholder = locachannel;
+
+    const channelDownloadRules = './data/youtube-conf-channel.conf';
+    var channelrules;
+    //mp3 rules
+    var channelrules = fs.readFileSync(channelDownloadRules, 'utf8');
+    document.getElementById("channelrulestext").innerHTML = channelrules;
 
     const electron = require('electron');
     const {

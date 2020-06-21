@@ -36,7 +36,7 @@
     <li><a class="active" href="mp4settings.html">MP4 Settings</a></li>
   </ul>
 
-  <h2>About</h2>
+  <h2>MP4 Settings</h2>
 
   <div id="parent">
     <form id="form">
@@ -49,10 +49,27 @@
     </form>
   </div>
 
+  <div id="parent">
+    <form id="form">
+      <div>
+        <label>MP4 Download Rules</label>
+        <br>
+        <textarea type="text" id="mp4rulestext" rows="18" cols="50"></textarea>
+      </div>
+      <!-- <button type="submit" class="button">Change</button> -->
+    </form>
+  </div>
+
   <script type="text/javascript">
     var fs = require('fs');
     const mp4LocationData = './data/mp4data.txt';
     var locamp4;
+
+    const mp4DownloadRules = './data/youtube-conf-mp4.conf';
+    var mp4rules;
+    //mp3 rules
+    var mp4rules = fs.readFileSync(mp4DownloadRules, 'utf8');
+    document.getElementById("mp4rulestext").innerHTML = mp4rules;
 
     // mp4
     var locamp4 = fs.readFileSync(mp4LocationData, 'utf8');

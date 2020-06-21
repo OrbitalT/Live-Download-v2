@@ -36,7 +36,7 @@
     <li><a class="active" href="mp3settings.html">MP3 Settings</a></li>
   </ul>
 
-  <h2>About</h2>
+  <h2>MP3 Settings</h2>
 
   <div id="parent">
     <form id="form">
@@ -49,14 +49,31 @@
     </form>
   </div>
 
+  <div id="parent">
+    <form id="form">
+      <div>
+        <label>MP3 Download Rules</label>
+        <br>
+        <textarea name="name" type="text" id="mp3rulestext" rows="11" cols="50"></textarea>
+      </div>
+      <!-- <button type="submit" class="button">Change</button> -->
+    </form>
+  </div>
+
   <script type="text/javascript">
     var fs = require('fs');
     const mp3LocationData = './data/mp3data.txt';
     var locamp3;
 
-    // mp3
+    // mp3 location
     var locamp3 = fs.readFileSync(mp3LocationData, 'utf8');
     document.getElementById("mp3locatext").placeholder = locamp3;
+
+    const mp3DownloadRules = './data/youtube-conf-mp3.conf';
+    var mp3rules;
+    //mp3 rules
+    var mp3rules = fs.readFileSync(mp3DownloadRules, 'utf8');
+    document.getElementById("mp3rulestext").innerHTML = mp3rules;
 
     const electron = require('electron');
     const {

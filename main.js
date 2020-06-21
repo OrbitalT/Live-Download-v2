@@ -23,11 +23,7 @@ let mainWindow;
 // ready
 app.on('ready', function() {
   // Create new main window
-  mainWindow = new BrowserWindow({
-    webPreferences: {
-      nodeIntegration: true
-    }
-  });
+  mainWindow = new BrowserWindow({webPreferences: {nodeIntegration: true}, width: 762, height: 850});
   //Load html
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'home.html'),
@@ -80,7 +76,7 @@ ipcMain.on('item:chanlocanew', function(e, item) {
 //mp3
 ipcMain.on('item:mp3', function(e, item) {
   var locamp3 = fs.readFileSync(mp3LocationData, 'utf8');
-  cmd.run('start cmd /c youtube-dl --config-location ./data/youtube-conf-mp4.conf -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o ' + locamp3 + item);
+  cmd.run('start cmd /c youtube-dl --config-location ./data/youtube-conf-mp3.conf -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o ' + locamp3 + item);
 });
 //mp4
 ipcMain.on('item:mp4', function(e, item) {
