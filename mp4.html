@@ -13,7 +13,6 @@
       <li><a href="mp3.html">MP3</a></li>
       <li><a class="active" href="mp4.html">MP4</a></li>
       <li><a href="channel.html">Channel</a></li>
-      <li><a href="settings.html">Settings</a></li>
     </ul>
 
   <div id="parent">
@@ -24,7 +23,10 @@
         <input type="text" id="item" autofocus>
       </div>
       <button type="submit" class="button">MP4</button>
-      <button class="button" onclick="document.getElementById('item').value = ''">Clear</button>
+      <button class="button" type="button" onclick="document.getElementById('item').value = ''">Clear</button>
+      <button onclick="window.location.href = 'mp4settings.html';" class="button" type="button">MP4 Settings</button>
+      <br>
+      <p id="mp4locatext">No location set for mp4</p>
     </form>
   </div>
 
@@ -41,6 +43,14 @@
     const item = document.querySelector('#item').value;
     ipcRenderer.send('item:mp4', item);
   }
+
+  var fs = require('fs');
+  const mp4LocationData = './data/mp4data.txt';
+  var locamp4;
+
+  // mp4
+  var locamp4 = fs.readFileSync(mp4LocationData, 'utf8');
+  document.getElementById("mp4locatext").innerHTML = locamp4;
 </script>
 
   </body>
