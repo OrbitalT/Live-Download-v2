@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Live Download MP3</title>
+</head>
+
+<body>
+
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a class="active" href="mp3.html">MP3</a></li>
+    <li><a href="mp4.html">MP4</a></li>
+    <li><a href="channel.html">Channel</a></li>
+  </ul>
+
+  <div id="parent">
+    <form id="form">
+      <div>
+        <label>URL MP3</label>
+        <br>
+        <input type="text" id="item" autofocus>
+      </div>
+      <button type="submit" class="button">MP3</button>
+      <button class="button" type="button" onclick="document.getElementById('item').value = ''">Clear</button>
+      <button onclick="window.location.href = 'mp3settings.html';" class="button" type="button">MP3 Settings</button>
+      <br>
+      <p id="mp3locatext">No location set for mp3</p>
+    </form>
+  </div>
+
+  <script>
+    const electron = require('electron');
+    const {
+      ipcRenderer
+    } = electron;
+
+    // mp3
+    const form = document.querySelector('form');
+    form.addEventListener('submit', submitFormp3);
+
+    function submitFormp3(e) {
+      e.preventDefault();
+      const item = document.querySelector('#item').value;
+      ipcRenderer.send('item:mp3', item);
+    }
+
+    var fs = require('fs');
+    const mp3LocationData = './data/mp3data.txt';
+    var locamp3;
+
+    // mp3
+    var locamp3 = fs.readFileSync(mp3LocationData, 'utf8');
+    document.getElementById("mp3locatext").innerHTML = locamp3;
+  </script>
+
+</body>
+
+</html>
