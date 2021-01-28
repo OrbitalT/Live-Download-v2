@@ -23,7 +23,7 @@
   "author": "NukeZ",
   "license": "MIT",
   "dependencies": {
-    "electron": "^7.2.4",
+    "electron": "^9.4.0",
     "node-cmd": "^3.0.0"
   },
   "devDependencies": {
