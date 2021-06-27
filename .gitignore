@@ -1,5 +1,6 @@
 node_modules/
 release-builds/
+.vscode/
 ffmpeg.exe
 ffplay.exe
 ffprobe.exe

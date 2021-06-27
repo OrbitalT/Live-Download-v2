@@ -82,17 +82,17 @@ ipcMain.on('item:chanlocanew', function (e, item) {
 //mp3
 ipcMain.on('item:mp3', function (e, item) {
   var locamp3 = fs.readFileSync(mp3LocationData, 'utf8');
-  cmd.run('start cmd /c youtube-dlc --config-location ./data/youtube-conf-mp3.conf -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o ' + locamp3 + item);
+  cmd.run('start cmd /c youtube-dl --config-location ./data/youtube-conf-mp3.conf -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o ' + locamp3 + item);
 });
 //mp4
 ipcMain.on('item:mp4', function (e, item) {
   var locamp4 = fs.readFileSync(mp4LocationData, 'utf8');
-  cmd.run('start cmd /c youtube-dlc --config-location ./data/youtube-conf-mp4.conf -o ' + locamp4 + item);
+  cmd.run('start cmd /c youtube-dl --config-location ./data/youtube-conf-mp4.conf -o ' + locamp4 + item);
 });
 //channel
 ipcMain.on('item:channel', function (e, item) {
   var locachannel = fs.readFileSync(channelLocationData, 'utf8');
-  cmd.run('start cmd /c youtube-dlc --config-location ./data/youtube-conf-channels.conf -o ' + locachannel + item);
+  cmd.run('start cmd /c youtube-dl --config-location ./data/youtube-conf-channels.conf -o ' + locachannel + item);
 });
 
 //menu temp
